@@ -1,0 +1,33 @@
+# this is an example on how to setup CI to generate CC and upload to codeclimate
+name: CI
+
+on:
+  schedule:
+  - cron: "0 0 * * *"
+
+jobs:
+  cc:
+
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v1
+    - name: Checkout master
+      run: git checkout master
+    - name: Run the tests with coverage using lcov
+      run: |
+        echo Generate report
+        # npm install
+        # npm run test:coverage
+    - name: Generate formatted coverage for codeclimate
+      run: |
+        echo Fetch testreporter tool
+        # curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+        # chmod +x cc-test-reporter
+        # ./cc-test-reporter format-coverage -t lcov
+    - name: Upload coverage report to codeclimate
+      #env:
+      #  CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
+      run: |
+        echo Upload report to codeclimate
+        # ./cc-test-reporter upload-coverage
