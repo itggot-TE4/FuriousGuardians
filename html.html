@@ -1,37 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-​
-    <template class="repo">
-​
-        <h1 class="header"> </h1>
-        <a class="repoToForks"></a>
-        <a class="repoToGithub"></a>
-​
-        <p class="forkAmount"></p>
-​
-    </template> 
-    
-    <template class="gaffel"> 
-​
-        <h1 class="repoPath"></h1>
-​
-        <!-- Code implementation -->
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="css.css" rel="stylesheet">
         
-        <a class="forkToGithub"></a>
-        <p class="tests"></p>
-        <form action="submit">
-            <input type="text">
-            <input type="checkbox"> Klar
-            <input type="checkbox"> Åtgärd krävs
-            <input type="checkbox"> Ej Bedömd
-            <input type="button">
-        </form>
-​
-    </template>
-</body>
+        <title>Document</title>
+
+    </head>
+    <body>
+
+        <div id="searchbar">
+
+            <div class="icon">
+                <i class="material-icons">account_box</i>
+            </div>
+            <div>
+                <form>
+                    <input id="search" type="text" onfocus="click()">
+                </form>
+            </div>
+
+        </div>
+
+        <div class="TemplateDisplay">
+
+            <div class="info">
+                <h2 id="header">Welcome To Teacher-O-Matic!</h2>
+                <p>Enter your Github username in the header field</p>
+            </div>
+
+        </div>
+    ​
+        <template class="repo">
+    ​
+            <h1 class="header"> </h1>
+            <a class="repoToForks"></a>
+            <a class="repoToGithub"></a>
+    ​
+            <p class="forkAmount"></p>
+    ​
+        </template> 
+        
+        <template class="gaffel"> 
+    ​
+            <h1 class="repoPath"></h1>
+    ​
+            <!-- Code implementation -->
+            
+            <a class="forkToGithub"></a>
+            <p class="tests"></p>
+            <form action="submit">
+                <input type="text">
+                <input type="checkbox"> Klar
+                <input type="checkbox"> Åtgärd krävs
+                <input type="checkbox"> Ej Bedömd
+                <input type="button">
+            </form>
+    ​
+        </template>
+
+        <script src="js.js"></script>
+
+    </body>
+</html>
