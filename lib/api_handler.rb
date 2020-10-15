@@ -3,8 +3,8 @@ require "base64"
 class ApiHandler
 
     def self.format_repos(repos)
-        repos.map {|repo| {name: repo[:name], forks_url: repo[:forks_url], forks_count: repo[:forks_count], github_url: repo[:html_url]} }
-        # repos.map {|repo| {name: repo["name"], forks_url: repo["forks_url"], forks_count: repo["forks_count"], html_url: repo["html_url"]} }
+        repos.map {|repo| {full_name: repo[:full_name], name: repo[:name], forks_url: repo[:forks_url], forks_count: repo[:forks_count], github_url: repo[:html_url]} }
+        # repos.map {|repo| {full_name: repo["full_name"], name: repo["name"], forks_url: repo["forks_url"], forks_count: repo["forks_count"], html_url: repo["html_url"]} }
     end
     
     

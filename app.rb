@@ -20,22 +20,41 @@ class Server < Sinatra::Base
         repo = params["repo"]
         ApiHandler.get_manifest(user, repo).to_json
     end
+    
 
-    get '/repos/:user/:repo/contents/:file' do
+    get '/repos/:user/:repo/contents/*' do
+        protocol = params[:splat].first
+        address = params[:splat][1..-1].join('/')
+        url = protocol + "//" + address
+      
         user = params["user"]
         repo = params["repo"]
-        file = params["file"]
-        ApiHandler.get_repo_content(user, repo, "#{file}")
+  
+        ApiHandler.get_repo_content(user, repo, "#{url}").to_json
     end
+    # get %r{/repos/:user/:repo/contents/(.+)} do
+    #     user = params["user"]
+    #     repo = params["repo"]
+    #     url = params[:captures]
+        
+    #     ApiHandler.get_repo_content(user, repo, "#{url}")
+    #   end
 
-    get '/repos/:user/:repo/contents/:file/:path' do
-        user = params["user"]
-        repo = params["repo"]
-        file = params["file"]
-        path = params["path"]
+    # get '/repos/:user/:repo/contents/:file' do
+    #     user = params["user"]
+    #     repo = params["repo"]
+    #     file = params["file"]
+    #     ApiHandler.get_repo_content(user, repo, "#{file}")
+    # end
 
-        ApiHandler.get_repo_content(user, repo, "#{file}/#{path}")
-    end
+    # get '/repos/:user/:repo/contents/:file/:path' do
+    #     user = params["user"]
+    #     repo = params["repo"]
+    #     file = params["file"]
+    #     path = params["path"]
+
+    #     ApiHandler.get_repo_content(user, repo, "#{file}/#{path}")
+    # end
 
 
 
