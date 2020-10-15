@@ -32,7 +32,9 @@ async function fetchForks(url) {
 
 document.getElementById("search").addEventListener("keydown", function(event){
     if(event.key === "Enter"){
+        document.querySelector(".TemplateDisplay").innerHTML = ""
         fetchRepos(document.getElementById("search").value)
+        
     }
 });
 
