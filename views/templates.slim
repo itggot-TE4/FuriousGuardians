@@ -1,8 +1,11 @@
 template#repo
     .repo
         h1.header
-        a.repoToForks Show Forks
-        a.repoToGithub Show on Github
+        div
+        .links
+            a.repoToForks Show Forks
+            a.pipe |
+            a.repoToGithub Show on Github
         p.forkAmount
 
 template#gaffel
