@@ -1,1 +1,20 @@
+template#repo
+    .repo
+        h1.header
+        a.repoToForks Show Forks
+        a.repoToGithub Show on Github
+        p.forkAmount
 
+template#gaffel
+    .fork
+        h1.repoPath
+        a.forkToGithub Show on github
+        p.tests
+        form[action="submit"]
+            input[type="text"]
+            input[type="checkbox"]
+            |  Klar 
+            input[type="checkbox"]
+            |  Åtgärd krävs 
+            input[type="checkbox"]
+            |  Ej Bedömd
