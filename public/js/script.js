@@ -1,0 +1,3 @@
+function colorChange(){
+    document.getElementById
+}
