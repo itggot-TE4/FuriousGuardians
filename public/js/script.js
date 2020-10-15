@@ -70,6 +70,7 @@ async function renderForks(forkData) {
 }
 
 async function fetchForks(e) {
+    resetPage()
     const response = await fetch(`http://localhost:9292/repos/${e.target.getAttribute("fullname")}/forks`)
     const result = await (response.json())
 
@@ -77,11 +78,15 @@ async function fetchForks(e) {
 
 }
 
+function resetPage() {
+    document.querySelector(".TemplateDisplay").innerHTML = "" 
+}
+
 
 //  other
-
-document.getElementById("search").addEventListener("keydown", function(event) {
-    if (event.key === "Enter") {
+document.getElementById("search").addEventListener("keydown", function(event){
+    if(event.key === "Enter"){
+        resetPage()
         fetchRepos(document.getElementById("search").value)
     }
 });
