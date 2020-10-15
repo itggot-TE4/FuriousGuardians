@@ -8,9 +8,10 @@ template#repo
 template#gaffel
     .fork
         h1.repoPath
+        code.codeWindow
         a.forkToGithub Show on github
-        p.tests
-        form[action="submit"]
+        .tests
+        form action="submit" method="post"
             input[type="text"]
             input[type="checkbox"]
             |  Klar 
