@@ -10,11 +10,11 @@ html lang="en"
     body
         #searchbar
             .icon
-                i.material-icons
+                i.material-icons id="icon"
                     | account_box
             div
                 form
-                input#search type="text" onfocus="colorChange()"
+                input#search type="text" onmouseenter="hover(true)" onmouseleave="hover(false)" autocomplete="off"
         .TemplateDisplay
             == yield
 
