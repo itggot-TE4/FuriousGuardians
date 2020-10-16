@@ -43,7 +43,10 @@ async function fetchCode(name, path) {
 async function renderForks(forkData) {
     const template = document.querySelector('#gaffel')
 
-    box = document.querySelector(".TemplateDisplay")
+    forkLayout = document.querySelector(".TemplateDisplay")
+    forkLayout.classList.add("forkLayout")
+    forkLayout.classList.remove("TemplateDisplay")
+    
     for (const fork of forkData) {
 
         manifest = await fetchManifest(fork["name"])
@@ -65,7 +68,9 @@ async function renderForks(forkData) {
         }
 
         box.appendChild(forkbox)
+        
     }
+    hljs.initHighlighting()
 
 }
 
