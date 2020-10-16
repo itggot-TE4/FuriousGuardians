@@ -11,14 +11,36 @@ template#repo
 template#gaffel
     .fork
         h1.repoPath
-        code.codeWindow
+        pre
+            code class="javascript codeWindow"
         a.forkToGithub Show on github
         .tests
-        form action="submit" method="post"
-            input[type="text"]
-            input[type="checkbox"]
-            |  Klar 
-            input[type="checkbox"]
-            |  Åtgärd krävs 
-            input[type="checkbox"]
-            |  Ej Bedömd
+        .breaker
+        form action="submit" method="post" class="comment-styling"
+            input[type="text" id="commentInput" placeholder="Comment"] 
+            .commentWrapper
+                .smallFlex
+                    input[type="checkbox"]
+                    div
+                        .material-icons
+                            | check
+                        .middleGround
+                            |  Klar 
+                .smallFlex 
+                    input[type="checkbox"]
+                    div
+                        .material-icons
+                            | replay
+                        .middleGround
+                            |  Åtgärd krävs 
+                .smallFlex 
+                    input[type="checkbox"]
+                    div
+                        .material-icons
+                            |  visibility_off
+                        .middleGround
+                            |  Ej Bedömd
+            button SAVE
+        script src="js/highlight.js"
+        javascript:
+            hljs.initHighlightingOnLoad();
