@@ -52,6 +52,7 @@ async function renderForks(forkData) {
         manifest = await fetchManifest(fork["name"])
         code = await fetchCode(fork["name"], manifest["filePath"])
 
+
         forkbox = template.content.cloneNode(true).querySelector('.fork')
 
         forkbox.querySelector(".repoPath").innerHTML = fork["name"]
@@ -67,12 +68,12 @@ async function renderForks(forkData) {
 
             testbox.appendChild(t)
         }
-
+        
+        hljs.highlightBlock(forkbox.querySelector('code'))
         box.appendChild(forkbox)
 
     }
-    hljs.initHighlighting()
-
+    
 }
 
 async function fetchForks(e) {
