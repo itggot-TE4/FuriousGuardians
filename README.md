@@ -1,3 +1,6 @@
+# Setup
+create .env file in root and write: token = "YOUR GITHUB TOKEN"
+
 [![Actions Status](https://github.com/itggot-TE4/TE4/workflows/tests/badge.svg)](https://github.com/itggot-TE4/Yala/actions)
 # TE4
 Template project for projects at TE4. 
