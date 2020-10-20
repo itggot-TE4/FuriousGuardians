@@ -21,23 +21,33 @@ function renderRepos(repoData) {
 
 async function fetchRepos(name) {
     const response = await fetch(`http://localhost:9292/users/${name}/repos`)
-    const result = await (response.json())
-
-    renderRepos(result)
+    if (response != null) {
+        const result = await (response.json())
+        renderRepos(result)
+    }
 }
 
 
 //  render forks
 async function fetchManifest(name) {
     const response = await fetch(`http://localhost:9292/repos/${name}/contents/.manifest.json`)
-    const result = await (response.json())
-    return result
+    if (response != null) {
+        const result = await (response.json())
+        return result
+    } else {
+        return null
+    }
 }
 
 async function fetchCode(name, path) {
     const response = await fetch(`http://localhost:9292/repos/${name}/contents/${path}`)
-    const result = await (response.json())
-    return result
+    if (response != null) {
+        console.log(response)
+        const result = await (response.json())
+        return result
+    } else {
+        return null
+    }
 }
 
 async function renderForks(forkData) {
@@ -50,38 +60,41 @@ async function renderForks(forkData) {
     for (const fork of forkData) {
 
         manifest = await fetchManifest(fork["name"])
-        code = await fetchCode(fork["name"], manifest["filePath"])
+        if (manifest != null) {
+            code = await fetchCode(fork["name"], manifest["filePath"])
+            if (code != null) {
 
+                forkbox = template.content.cloneNode(true).querySelector('.fork')
 
-        forkbox = template.content.cloneNode(true).querySelector('.fork')
+                forkbox.querySelector(".repoPath").innerHTML = fork["name"]
+                forkbox.querySelector(".codeWindow").innerHTML = code
+                forkbox.querySelector(".forkToGithub").href = fork["html_url"]
 
-        forkbox.querySelector(".repoPath").innerHTML = fork["name"]
-        forkbox.querySelector(".codeWindow").innerHTML = code
-        console.log(fork)
-        forkbox.querySelector(".forkToGithub").href = fork["html_url"]
+                testbox = forkbox.querySelector(".tests")
+                for (const test of manifest["tests"]) {
+                    t = document.createElement("div")
+                    t.classList.add("test")
+                    t.innerHTML = `Test "${test["description"]}:" Passed`
 
-        testbox = forkbox.querySelector(".tests")
-        for (const test of manifest["tests"]) {
-            t = document.createElement("div")
-            t.classList.add("test")
-            t.innerHTML = `Test "${test["description"]}:" Passed`
+                    testbox.appendChild(t)
+                }
 
-            testbox.appendChild(t)
+                hljs.highlightBlock(forkbox.querySelector('code'))
+                box.appendChild(forkbox)
+            }
         }
-        
-        hljs.highlightBlock(forkbox.querySelector('code'))
-        box.appendChild(forkbox)
 
     }
-    
+
 }
 
 async function fetchForks(e) {
     resetPage()
     const response = await fetch(`http://localhost:9292/repos/${e.target.getAttribute("fullname")}/forks`)
-    const result = await (response.json())
-
-    renderForks(result)
+    if (response != null) {
+        const result = await (response.json())
+        renderForks(result)
+    }
 
 }
 
