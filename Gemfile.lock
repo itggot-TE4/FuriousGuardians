@@ -1,6 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    dotenv (2.7.6)
     ffi (1.13.1)
     httparty (0.18.1)
       mime-types (~> 3.0)
@@ -39,6 +40,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  dotenv
   httparty
   rake
   rerun
