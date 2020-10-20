@@ -8,11 +8,7 @@ class ApiHandler
   end
   
   def self.call_gh_api(url)
-    auth = {
-    username: 'te4-alexander-kjellberg1',
-    token: 'token'
-  }
-  options = { basic_auth: auth }
+  options = { headers: {Authorization: "token beb44af12028612aec4d26f4b86af8bf20120b34"} }
   HTTParty.get(url, options)
 end
 
