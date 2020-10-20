@@ -1,0 +1,46 @@
+template#repo
+    .repo.card.col.s4
+        div.header.card-title.col.s10.
+        .col.s2
+        .links.col.s10
+            a.repoToForks class="blue-text" Show Forks
+            a.pipe class="black-text" |
+            a.repoToGithub class="blue-text" Show on Github
+        p.forkAmount class="card-title grey-text col s2 align-right"
+
+
+template#gaffel
+    .fork.card
+        h1.repoPath
+        pre
+            code class="javascript codeWindow"
+        a.forkToGithub Show on github
+        .tests
+        .breaker
+        form action="submit" method="post" class="comment-styling"
+            input[type="text" id="commentInput" placeholder="Comment"] 
+            .commentWrapper
+                .smallFlex
+                    input[type="radio" name="comment-option"]
+                    div
+                        .material-icons
+                            | check
+                        .middleGround
+                            |  Klar 
+                .smallFlex 
+                    input[type="radio" name="comment-option"]
+                    div
+                        .material-icons
+                            | replay
+                        .middleGround
+                            |  Åtgärd krävs 
+                .smallFlex 
+                    input[type="radio" name="comment-option"]
+                    div
+                        .material-icons
+                            |  visibility_off
+                        .middleGround
+                            |  Ej Bedömd
+            button SAVE
+        javascript:
+            hljs.initHighlightingOnLoad();

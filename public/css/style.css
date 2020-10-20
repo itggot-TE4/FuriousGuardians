@@ -1,0 +1,203 @@
+*{
+    margin: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#searchbar{
+    position: fixed;
+    top: 0;
+    background-color:rgb(221, 116, 116);
+    width: 100%;
+    height: 8vh;
+    display:grid;
+    box-shadow: 0px .2vh 2vh grey;
+    grid-template-columns: 5% auto;
+    transition: ease-in-out, .35s ease-in-out;
+    z-index: 100;
+}
+
+#search{
+    width: 97%;
+    height: 7.7vh;
+    border: none;
+    border-style: none;
+    background-color: rgba(0, 0, 0, 0);
+    color:white;
+    font-size: 1.7vh;
+}
+
+#search:focus {
+    outline: none;
+}
+
+i{
+    color:white;
+    margin: auto;
+}
+
+.material-icons{
+    font-size: 5vh;
+    transition: ease-in-out, .35s ease-in-out;
+    
+}
+
+.icon{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.info{
+    width: 80%;
+    margin-top: 10vh;
+    position: absolute;
+}
+h2{
+    font-weight: 500;
+    font-size: 7vh;
+}
+p{
+    margin-top: 3vh;
+    font-size: 2vh;
+}
+
+.TemplateDisplay{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-row-gap: 3vh;
+    width: 60%;
+    padding: 0 20% 0 20%;
+}
+
+.header{
+    font-size: 2vh;
+    font-weight: 300;
+}
+
+.repo{
+    padding: 2vh;
+    display: grid;
+    grid-template-columns: 95% 5%;
+    grid-template-rows: 50% 50%;
+    box-shadow: .1vh .1vh 0.5vh grey;
+}
+
+.forkAmount{
+    display: flex;
+    justify-content: flex-end;
+    margin:0px;
+    color: grey;
+}
+
+.links{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+a{
+    text-decoration: none;
+    color: rgb(78, 191, 243);
+}
+
+.pipe{
+    color: black;
+    margin: 0 3px 0 3px;
+}
+
+#Filler{
+    width: 100%;
+    height: 15vh;
+}
+
+.forkLayout{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0  10% 0 10%;
+    flex-wrap: wrap;
+}
+
+.fork{
+    padding: 4vh;
+    padding-bottom: 1vh;
+    width: 450px;
+    display: grid;
+    margin: 2px;
+    /* grid-template-columns: 95% 5%; */
+    grid-template-rows: 74px auto auto auto auto 260px;
+    box-shadow: 0.1vh 0.1vh 0.5vh grey;
+}
+
+.fork pre{
+    margin-top: 15px;
+    max-height: 200px;
+    overflow-y: scroll;
+}
+
+.fork h1{
+    overflow: hidden;
+    font-size: 30px;
+    font-weight: 100;
+}
+
+.fork .forkToGithub{
+    margin: 15px 0 20px 0;
+}
+
+.fork .breaker{    
+    height: 2px;
+    opacity: 0.1;
+    background-color: black;
+    margin-top: 50px;
+}
+
+.comment-styling{
+    display: flex;
+    flex-direction: column;
+}
+
+.comment-styling button{
+    background-color: rgb(45, 172, 151);
+    width: 70px;
+    color: white;
+    height: 35px;
+    border: none;
+    border-radius: 5%;
+    -webkit-box-shadow: 3px 3px 5px -2px rgba(0,0,0,0.49);
+    -moz-box-shadow: 3px 3px 5px -2px rgba(0,0,0,0.49);
+    box-shadow: 3px 3px 5px -2px rgba(0,0,0,0.49);
+    margin: 20px 0 10px 0;
+}
+
+#commentInput{
+    margin: 50px 0 30px 0;
+    height: 40px;
+    font-size: 15px;
+    opacity: 0.7;
+    border-style: none none solid none;
+}
+
+.smallFlex{
+    display: flex;
+    align-items: center;
+}
+
+.smallFlex input{
+    border-radius: 50%;
+}
+
+.smallFlex div{
+    
+    display: flex;
+    opacity: 0.7;
+    margin-left: 5px;
+}
+
+.smallFlex .material-icons{
+    font-size: 24px;
+}
+
+/* .codeWindow .javascript{
+    display:block;overflow-x:auto;padding:.5em;background:#f0f0f0}.hljs,.hljs-subst{color:#444}.hljs-comment{color:#888}.hljs-attribute,.hljs-doctag,.hljs-keyword,.hljs-meta-keyword,.hljs-name,.hljs-selector-tag{font-weight:700}.hljs-deletion,.hljs-number,.hljs-quote,.hljs-selector-class,.hljs-selector-id,.hljs-string,.hljs-template-tag,.hljs-type{color:blue}.hljs-section,.hljs-title{color:blue;font-weight:700}.hljs-link,.hljs-regexp,.hljs-selector-attr,.hljs-selector-pseudo,.hljs-symbol,.hljs-template-variable,.hljs-variable{color:#bc6060}.hljs-literal{color:#78a960}.hljs-addition,.hljs-built_in,.hljs-bullet,.hljs-code{color:#397300}.hljs-meta{color:#1f7199}.hljs-meta-string{color:#4d99bf}.hljs-emphasis{font-style:italic}.hljs-strong{font-weight:700 !important
+} */
