@@ -7,7 +7,7 @@ function renderRepos(repoData) {
         repobox = template.content.cloneNode(true).querySelector('.repo')
 
         repobox.querySelector(".header").innerHTML = repo["name"]
-        repobox.querySelector(".repoToGithub").href = repo["github_url"]
+        repobox.querySelector(".repoToGithub").href = repo["html_url"]
         repobox.querySelector(".forkAmount").innerHTML = repo["forks_count"]
 
         forkLink = repobox.querySelector(".repoToForks")
@@ -46,7 +46,7 @@ async function renderForks(forkData) {
     forkLayout = document.querySelector(".TemplateDisplay")
     forkLayout.classList.add("forkLayout")
     forkLayout.classList.remove("TemplateDisplay")
-    
+
     for (const fork of forkData) {
 
         manifest = await fetchManifest(fork["name"])
@@ -57,7 +57,8 @@ async function renderForks(forkData) {
 
         forkbox.querySelector(".repoPath").innerHTML = fork["name"]
         forkbox.querySelector(".codeWindow").innerHTML = code
-        forkbox.querySelector(".forkToGithub").href = fork["github_url"]
+        console.log(fork)
+        forkbox.querySelector(".forkToGithub").href = fork["html_url"]
 
         testbox = forkbox.querySelector(".tests")
         for (const test of manifest["tests"]) {
@@ -70,7 +71,7 @@ async function renderForks(forkData) {
         
         hljs.highlightBlock(forkbox.querySelector('code'))
         box.appendChild(forkbox)
-        
+
     }
     
 }
@@ -85,13 +86,13 @@ async function fetchForks(e) {
 }
 
 function resetPage() {
-    document.querySelector(".TemplateDisplay").innerHTML = "" 
+    document.querySelector(".TemplateDisplay").innerHTML = ""
 }
 
 
 //  other
-document.getElementById("search").addEventListener("keydown", function(event){
-    if(event.key === "Enter"){
+document.getElementById("search").addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
         resetPage()
         fetchRepos(document.getElementById("search").value)
     }
