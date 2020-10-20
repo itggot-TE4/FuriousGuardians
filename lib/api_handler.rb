@@ -7,20 +7,9 @@ class ApiHandler
         repos.map {|repo| {full_name: repo["full_name"], name: repo["name"], forks_url: repo["forks_url"], forks_count: repo["forks_count"], html_url: repo["html_url"]} }
     end
     
-    def self.call_gh_api(url)
-      auth = {
-        username: 'te4-alexander-kjellberg1',
-        token: 'token'
-      }
-      options = { basic_auth: auth }
-      HTTParty.get(url, options)
-    end
     
     def self.get_repos(user = "itggot")
-        response = call_gh_api("https://api.github.com/users/#{user}/repos")
-        # response = HTTParty.get("https://api.github.com/users/#{user}/repos")
-
-
+        response = HTTParty.get("https://api.github.com/users/#{user}/repos")
         # response = [
         #     {
         #         "id": 162095383,
@@ -2856,7 +2845,7 @@ class ApiHandler
     end
     
     def self.get_forks(user = "itggot", repo = "smallest_of_two")
-      response = call_gh_api("https://api.github.com/repos/#{user}/#{repo}/forks")
+        response = HTTParty.get("https://api.github.com/repos/#{user}/#{repo}/forks")
         # response = [
         #     {
         #       "id": 215999269,
@@ -3349,7 +3338,7 @@ class ApiHandler
 
 
     def self.get_repo_content(user = "itggot", repo = "smallest_of_two", file = ".manifest.json")
-      response = call_gh_api("https://api.github.com/repos/#{user}/#{repo}/contents/#{file}")
+        response = HTTParty.get("https://api.github.com/repos/#{user}/#{repo}/contents/#{file}")
         
         
         #   lib/smallest_of_two.js
@@ -3363,7 +3352,7 @@ class ApiHandler
     
     
     def self.get_manifest(user = "itggot", repo = "smallest_of_two")
-      response = call_gh_api("https://api.github.com/repos/#{user}/#{repo}/contents/.manifest.json")
+        response = HTTParty.get("https://api.github.com/repos/#{user}/#{repo}/contents/.manifest.json")
         
         
         #   .manifest.json
