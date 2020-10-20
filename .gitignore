@@ -2,3 +2,5 @@ node_modules/
 coverage/
 cover/
 .DS_Store
+Gemfile.lock
+.env
