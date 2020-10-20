@@ -1,4 +1,5 @@
 require "base64"
+Dotenv.load
 
 class ApiHandler
   
@@ -7,10 +8,10 @@ class ApiHandler
   end
   
   def self.call_gh_api(url)
-    options = { headers: {Authorization: "token 485f1d3fa296b7d0bc9c0c669911d21ce10510f0"}}
+    options = { headers: {Authorization: "token #{ENV['token']}"}}
     HTTParty.get(url, options)
 end
-
+ 
 def self.get_repos(user = "itggot")
   response = call_gh_api("https://api.github.com/users/#{user}/repos")
   
