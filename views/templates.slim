@@ -1,15 +1,16 @@
 template#repo
-    .repo
-        h1.header
-        div
-        .links
-            a.repoToForks Show Forks
-            a.pipe |
-            a.repoToGithub Show on Github
-        p.forkAmount
+    .repo.card.col.s4
+        div.header.card-title.col.s10.
+        .col.s2
+        .links.col.s10
+            a.repoToForks class="blue-text" Show Forks
+            a.pipe class="black-text" |
+            a.repoToGithub class="blue-text" Show on Github
+        p.forkAmount class="card-title grey-text col s2 align-right"
+
 
 template#gaffel
-    .fork
+    .fork.card
         h1.repoPath
         pre
             code class="javascript codeWindow"

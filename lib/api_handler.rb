@@ -7,7 +7,7 @@ class ApiHandler
   end
   
   def self.call_gh_api(url)
-    options = { headers: {Authorization: "token "}}
+    options = { headers: {Authorization: "token 485f1d3fa296b7d0bc9c0c669911d21ce10510f0"}}
     HTTParty.get(url, options)
 end
 

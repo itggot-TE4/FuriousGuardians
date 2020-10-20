@@ -4,25 +4,31 @@ html lang="en"
         meta charset="UTF-8"/
         meta name="viewport" content="width=device-width, initial-scale=1.0"/
         link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"
-        link rel="stylesheet" href="css/style.css"/
         link rel="stylesheet" href="css/highlight.css"/
+
+        link rel="stylesheet" href="css/materialize.css"/
+        / link rel="stylesheet" href="css/style.css"/
+        
         title Teacher-O-Matic!
         
     body
-        #searchbar
-            .icon
-                i.material-icons id="icon"
+        #searchbar class="row" style="background-color: rgb(221, 116, 116);"
+            .icon class="col s1"
+                i id="icon" class="material-icons"
                     | account_box
-            div
+            div class="col s11"
                 form
 
-                input#search type="text" onmouseenter="hover(true)" onmouseleave="hover(false)" autocomplete="off" placeholder="Simply Search"
+                input#search onmouseenter="hover(true)" onmouseleave="hover(false)" autocomplete="off" style="border:none"
 
         #Filler
-        .TemplateDisplay
-            == yield
+        .center-align class="row"
+            div class="col s2"
+            .TemplateDisplay class="left-align col s8"
+                == yield
 
 
-        == slim :templates
+            == slim :templates
+            div class="col s2"
 
         script src="js/script.js"
